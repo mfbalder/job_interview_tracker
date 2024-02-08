@@ -1,14 +1,18 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: %i[ show edit update destroy ]
+  before_action :set_job, only: %i[show edit update destroy]
 
   # GET /jobs or /jobs.json
   def index
     @jobs = Job.all
+    @applied = Job.where(status: 'Applied')
+    @interviewing = Job.where(status: 'Interviewing')
+    @rejected = Job.where(status: 'Rejected')
+    @accepted = Job.where(status: 'Accepted')
+    @closed = Job.where(status: 'Role Closed')
   end
 
   # GET /jobs/1 or /jobs/1.json
-  def show
-  end
+  def show; end
 
   # GET /jobs/new
   def new

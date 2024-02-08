@@ -2,13 +2,15 @@
 
 <h1>Jobs</h1>
 
-<div id="jobs">
-  <% @jobs.each do |job| %>
-    <%= render job %>
-    <p>
-      <%= link_to "Show this job", job %>
-    </p>
-  <% end %>
-</div>
+<% [@applied, @interviewing, @rejected, @accepted, @closed].each do |jobs_by_status| %>
+  <div>
+    <% jobs_by_status.each do |job| %>
+      <%= render partial: 'jobs/job_table', locals: { job: job } %>
+      <p>
+        <%= link_to "Show this job", job %>
+      </p>
+    <% end %>
+  </div>
+<% end %>
 
 <%= link_to "New job", new_job_path %>
