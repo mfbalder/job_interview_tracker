@@ -20,7 +20,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_181839) do
 
   create_table "interviews", force: :cascade do |t|
     t.bigint "job_id"
-    t.date "datetime", null: false, comment: "The date and time of the interview"
+    t.date "date", null: false, comment: "The date of the interview"
+    t.time "start_time", null: false, comment: "The start time of the interview"
     t.string "notes", comment: "Notes taken during the interview"
     t.string "questions_to_ask", comment: "Questions to ask the interviewer and answers"
     t.string "reflections", comment: "To track performance impressions after the interview"
