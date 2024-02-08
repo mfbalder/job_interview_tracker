@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_206_181_839) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_06_181839) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,14 +19,14 @@ ActiveRecord::Schema[7.1].define(version: 20_240_206_181_839) do
   create_enum "status", ["Applied", "Interviewing", "Rejected", "Accepted", "Role Closed"]
 
   create_table "interviews", force: :cascade do |t|
-    t.bigint "jobs_id"
+    t.bigint "job_id"
     t.date "datetime", null: false, comment: "The date and time of the interview"
     t.string "notes", comment: "Notes taken during the interview"
     t.string "questions_to_ask", comment: "Questions to ask the interviewer and answers"
     t.string "reflections", comment: "To track performance impressions after the interview"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["jobs_id"], name: "index_interviews_on_jobs_id"
+    t.index ["job_id"], name: "index_interviews_on_job_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -44,5 +44,5 @@ ActiveRecord::Schema[7.1].define(version: 20_240_206_181_839) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "interviews", "jobs", column: "jobs_id"
+  add_foreign_key "interviews", "jobs"
 end
