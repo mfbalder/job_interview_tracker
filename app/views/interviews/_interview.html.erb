@@ -4,3 +4,6 @@
     <p><span class='job_header'>Notes: </span><%= interview.notes %></p>
     <p><span class='job_header'>Reflections: </span><%= interview.reflections %></p>
 </div>
+<div>
+    <%= link_to "Edit this interview", edit_interview_path(interview) %>
+</div>
