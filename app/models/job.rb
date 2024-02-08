@@ -1,3 +1,3 @@
 class Job < ApplicationRecord
-    has_many :interviews
+  has_many :interviews
 end

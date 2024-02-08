@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "interviews/new", type: :view do
   before(:each) do
-    assign(:interview, Interview.new())
+    assign(:interview, Interview.new)
   end
 
   it "renders new interview form" do

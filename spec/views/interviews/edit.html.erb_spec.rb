@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "interviews/edit", type: :view do
-  let(:interview) {
-    Interview.create!()
-  }
+  let(:interview) do
+    Interview.create!
+  end
 
   before(:each) do
     assign(:interview, interview)

@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "jobs/edit", type: :view do
-  let(:job) {
-    Job.create!()
-  }
+  let(:job) do
+    Job.create!
+  end
 
   before(:each) do
     assign(:job, job)
