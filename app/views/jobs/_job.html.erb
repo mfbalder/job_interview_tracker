@@ -1,2 +1,22 @@
-<div id="<%= dom_id job %>">
+<div>
+    <p><span class='job_header'>Company Name: </span><%= job.company_name %></p>
+    <p><span class='job_header'>Role Name: </span><%= job.role_name %></p>
+    <p><span class='job_header'>Status: </span> <%= job.status %></p>
+    <p><span class='job_header'>Referral: </span><%= job.referral %></p>
+    <p><span class='job_header'>Salary Minimum: </span><%= job.salary_min %></p>
+    <p><span class='job_header'>Salary Maximum: </span><%= job.salary_max %></p>
+    <p><span class='job_header'>Hourly Rate: </span><%= job.hourly_rate %></p>
+    <p><span class='job_header'>Job Posting URL: </span><%= job.url %></p>
+    <p><span class='job_header'>Hiring Manager Name: </span><%= job.hiring_manager_name %></p>
+    <p><span class='job_header'>Hiring Manager Email: </span><%= job.hiring_manager_email %></p>
+</div>
+
+<div>
+    <h2>Interviews</h2>
+    <% job.interviews.order(date: 'desc').each do |interview| %>
+        <p><span class='job_header'>Date: </span><%= interview.date %></p>
+        <p><span class='job_header'>Questions to Ask: </span><%= interview.questions_to_ask %></p>
+        <p><span class='job_header'>Notes: </span><%= interview.notes %></p>
+        <p><span class='job_header'>Reflections: </span><%= interview.reflections %></p>
+    <% end %>    
 </div>

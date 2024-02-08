@@ -11,6 +11,28 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :job_id, value: params['job_id'] %>
+  <div>
+    <%= form.label 'Date (MM/DD/YY)' %>
+    <%= form.text_field :date %>   
+  </div> 
+  <div>
+    <%= form.label :start_time %>
+    <%= form.text_field :start_time %>   
+  </div> 
+  <div>
+    <%= form.label :questions_to_ask %>
+    <%= form.text_area :questions_to_ask %>
+  </div>
+  <div>
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+  <div>
+    <%= form.label :reflections %>
+    <%= form.text_area :reflections %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>

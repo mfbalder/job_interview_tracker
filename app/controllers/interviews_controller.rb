@@ -58,13 +58,14 @@ class InterviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_interview
-      @interview = Interview.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def interview_params
-      params.fetch(:interview, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_interview
+    @interview = Interview.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def interview_params
+    params.require(:interview).permit(:date, :start_time, :questions_to_ask, :notes, :reflections, :job_id)
+  end
 end
