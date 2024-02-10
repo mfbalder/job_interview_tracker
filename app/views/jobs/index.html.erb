@@ -2,14 +2,9 @@
 
 <h1>Jobs</h1>
 
-<% [@applied, @interviewing, @rejected, @accepted, @closed].each do |jobs_by_status| %>
+<% Job::STATUSES.each do |status| %>
   <div>
-    <% jobs_by_status.each do |job| %>
-      <%= render partial: 'jobs/job_table', locals: { job: job } %>
-      <p>
-        <%= link_to "Show this job", job %>
-      </p>
-    <% end %>
+      <%= render partial: 'jobs/job_table', locals: { jobs: Job.where(status: status), status: status } %>
   </div>
 <% end %>
 
