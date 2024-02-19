@@ -6,8 +6,7 @@
         <th>Role Name</th>
         <th>Status</th>
         <th>Referral</th>
-        <th>Salary Minimum</th>
-        <th>Salary Maximum</th>
+        <th>Salary Range</th>
         <th>Hourly Rate</th>
         <th>Job Posting URL</th>
         <th>Hiring Manager Name</th>
@@ -19,9 +18,8 @@
             <td><%= job.role_name %></td>
             <td><%= select_tag 'status', options_for_select(Job::STATUSES, selected: job.status), class: 'input-block-level status-dropdown', id: 'status-dropdown' %></td>
             <td><%= job.referral %></td>
-            <td><%= job.salary_min %></td>
-            <td><%= job.salary_max %></td>
-            <td><%= job.hourly_rate %></td>
+            <td><%= "#{number_to_currency(job.salary_min)} - #{number_to_currency(job.salary_max)}" %></td>
+            <td><%= number_to_currency(job.hourly_rate) %></td>
             <td><%= job.url %></td>
             <td><%= job.hiring_manager_name %></td>
             <td><%= job.hiring_manager_email %></td>
