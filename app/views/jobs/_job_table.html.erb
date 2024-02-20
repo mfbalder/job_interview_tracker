@@ -1,3 +1,4 @@
+<%= javascript_include_tag('packs/job_table') %>
 <h3><%= status %></h1>
 
 <table class='jobs_table'>
@@ -16,7 +17,20 @@
         <tr>
             <td><%= link_to job.company_name, job_path(job) %></td>
             <td><%= job.role_name %></td>
-            <td><%= select_tag 'status', options_for_select(Job::STATUSES, selected: job.status), class: 'input-block-level status-dropdown', id: 'status-dropdown' %></td>
+            <td>
+            <%= select_tag(
+                'status',
+                options_for_select(Job::STATUSES, selected: job.status),
+                prompt: "Status",
+                class: 'input-block-level chzn-select status-dropdown',
+                id: 'status-dropdown',
+                data: {
+                    remote: true,
+                    method: 'patch',
+                    id: job.id
+                }
+            ) %>
+            </td>
             <td><%= job.referral %></td>
             <td><%= "#{number_to_currency(job.salary_min)} - #{number_to_currency(job.salary_max)}" %></td>
             <td><%= number_to_currency(job.hourly_rate) %></td>
