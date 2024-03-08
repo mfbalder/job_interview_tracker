@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_206_181_839) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_06_181839) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,7 +21,9 @@ ActiveRecord::Schema[7.1].define(version: 20_240_206_181_839) do
   create_table "interviews", force: :cascade do |t|
     t.bigint "job_id"
     t.date "date", null: false, comment: "The date of the interview"
-    t.time "start_time", null: false, comment: "The start time of the interview"
+    t.datetime "start_time", null: false, comment: "The start time of the interview"
+    t.datetime "end_time", comment: "The end time of the interview"
+    t.string "interviewer_name", null: false, comment: "The name of the person conducting the interview"
     t.string "notes", comment: "Notes taken during the interview"
     t.string "questions_to_ask", comment: "Questions to ask the interviewer and answers"
     t.string "reflections", comment: "To track performance impressions after the interview"

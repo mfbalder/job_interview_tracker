@@ -11,14 +11,21 @@
     </div>
   <% end %>
 
-  <%= form.hidden_field :job_id %>
   <div>
     <%= form.label 'Date (MM/DD/YY)' %>
     <%= form.text_field :date %>   
   </div> 
   <div>
     <%= form.label :start_time %>
-    <%= form.text_field :start_time %>   
+    <%= time_select("interview", "start_time", { minute_step: 15 }) %>
+  </div> 
+  <div>
+  <%= form.label :end_time %>
+  <%= time_select("interview", "end_time", { minute_step: 15 }) %>
+</div> 
+<div>
+    <%= form.label 'Interviewer Name' %>
+    <%= form.text_field :interviewer_name %>   
   </div> 
   <div>
     <%= form.label :questions_to_ask %>
