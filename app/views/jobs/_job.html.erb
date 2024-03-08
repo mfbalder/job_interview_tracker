@@ -3,8 +3,8 @@
     <p><span class='job_header'>Role Name: </span><%= job.role_name %></p>
     <p><span class='job_header'>Status: </span> <%= job.status %></p>
     <p><span class='job_header'>Referral: </span><%= job.referral %></p>
-    <p><span class='job_header'>Salary Minimum: </span><%= job.salary_min %></p>
-    <p><span class='job_header'>Salary Maximum: </span><%= job.salary_max %></p>
+    <p><span class='job_header'>Salary Minimum: </span><%= number_to_currency(job.salary_min) %></p>
+    <p><span class='job_header'>Salary Maximum: </span><%= number_to_currency(job.salary_max) %></p>
     <p><span class='job_header'>Hourly Rate: </span><%= job.hourly_rate %></p>
     <p><span class='job_header'>Job Posting URL: </span><%= job.url %></p>
     <p><span class='job_header'>Hiring Manager Name: </span><%= job.hiring_manager_name %></p>
