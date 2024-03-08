@@ -3,7 +3,7 @@
 <%= render @interview %>
 
 <div>
-  <%= link_to "Edit this interview", edit_interview_path(@interview) %> |
+  <%= link_to "Edit this interview", edit_job_interview_path(@interview) %> |
   <%= link_to "Back to job", job_path(@interview.job_id) %>
 
   <%= button_to "Destroy this interview", @interview, method: :delete %>

@@ -5,6 +5,6 @@
 <br>
 
 <div>
-  <%= link_to "Show this interview", @interview %> |
-  <%= link_to "Back to interviews", interviews_path %>
+  <%= link_to "Show this interview", job_interview_path(@interview) %> |
+  <%= link_to "Back to interviews", job_interviews_path(@interview.job) %>
 </div>
