@@ -21,7 +21,6 @@ class InterviewsController < ApplicationController
   # POST /interviews or /interviews.json
   def create
     @interview = @job.interviews.build(interview_params)
-    # @interview = Interview.new(interview_params)
 
     respond_to do |format|
       if @interview.save
