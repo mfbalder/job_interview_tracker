@@ -40,3 +40,14 @@
         </tr>
     <% end %>
 </table>
+
+<script type="text/javascript">
+  function jobStatus(chk) {
+    $.ajax({
+      type: "PATCH",
+      url: "/jobs/"+$(chk).attr('id')+"/update_status", 
+      dataType: "script",
+      data: { job: {status : chk.status} }
+    });
+  }
+</script>

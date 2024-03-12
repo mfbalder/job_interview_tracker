@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :jobs do
     resources :interviews
+    patch '/update_status', to: 'jobs#update_status'
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
