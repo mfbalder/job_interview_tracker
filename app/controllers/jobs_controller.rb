@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: %i[show edit update destroy]
-  skip_before_action :verify_authenticity_token  
+  skip_before_action :verify_authenticity_token
 
   # GET /jobs or /jobs.json
   def index
@@ -54,9 +54,7 @@ class JobsController < ApplicationController
   def update_status
     @job = Job.find_by(id: params[:job_id])
     respond_to do |format|
-      if @job.update(status: params[:status])
-        format.js {render inline: "location.reload();" }
-      end
+      format.js { render inline: "location.reload();" } if @job.update(status: params[:status])
     end
   end
 
